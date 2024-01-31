@@ -55,7 +55,7 @@ data "azurerm_resource_group" "main" {
 
 resource "azurerm_storage_account" "uksstorage" {
     name = "${local.prefix}${random_string.uksstorage.result}"
-    resource_group_name = azurerm_resource_group.main.name
+    resource_group_name = data.azurerm_resource_group.main.name
     location = "uksouth"
     account_tier = "Standard"
     account_replication_type = "LRS"
