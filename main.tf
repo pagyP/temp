@@ -46,6 +46,13 @@ resource "random_string" "uksstorage" {
   
 }
 
+data "azurerm_resource_group" "main" {
+  name = "lab-rg"
+}
+
+
+
+
 resource "azurerm_storage_account" "uksstorage" {
     name = "${local.prefix}${random_string.uksstorage.result}"
     resource_group_name = azurerm_resource_group.main.name
@@ -53,5 +60,5 @@ resource "azurerm_storage_account" "uksstorage" {
     account_tier = "Standard"
     account_replication_type = "LRS"
     account_kind = "StorageV2"
-    tags = azurerm_resource_group.main.tags
+   // tags = azurerm_resource_group.main.tags
 }
