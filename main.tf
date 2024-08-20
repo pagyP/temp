@@ -221,7 +221,7 @@ resource "azurerm_private_endpoint" "storageepweb" {
   
 
   private_dns_zone_group {
-    name                  = "storage-private-endpoint-dns-zone-group-q"
+    name                  = "storage-private-endpoint-dns-zone-group-web"
     private_dns_zone_ids  = [azurerm_private_dns_zone.web.id]
     //visibility            = "Private"
   }
